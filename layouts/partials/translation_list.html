@@ -5,15 +5,7 @@
 <ul class="i18n_list">
     {{- i18n "translations" | default "Translations"}}:
     {{- range .Translations }}
-    <li>
-        <a href="{{ .Permalink }}">
-            {{- if (and $.Site.Params.displayFullLangName (.Language.LanguageName)) }}
-            {{- .Language.LanguageName | emojify | humanize -}}
-            {{- else }}
-            {{- .Lang | humanize -}}
-            {{- end -}}
-        </a>
-    </li>
+    <li><a href="{{ .Permalink }}">{{- .Lang | humanize -}}</a></li>
     {{- end }}
 </ul>
 {{- end }}

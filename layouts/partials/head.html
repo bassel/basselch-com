@@ -15,24 +15,12 @@
 <meta name="description" content="{{- with .Description }}{{ . }}{{- else }}{{- if .IsPage}}
     {{- .Summary | default (printf "%s - %s" .Title  .Site.Title) }}{{- else }}
     {{- with .Site.Params.description }}{{ . }}{{- end }}{{- end }}{{- end -}}">
-<meta name="author" content="{{ (partial "author.html" . ) }}">
+<meta name="author" content="{{ .Site.Params.author }}">
 <link rel="canonical" href="{{ if .Params.canonicalURL -}} {{ trim .Params.canonicalURL " " }} {{- else -}} {{ .Permalink }} {{- end }}" />
-{{- if .Site.Params.analytics.google.SiteVerificationTag }}
-<meta name="google-site-verification" content="{{ .Site.Params.analytics.google.SiteVerificationTag }}" />
-{{- end}}
-{{- if .Site.Params.analytics.yandex.SiteVerificationTag }}
-<meta name="yandex-verification" content="{{ .Site.Params.analytics.yandex.SiteVerificationTag }}" />
-{{- end}}
-{{- if .Site.Params.analytics.bing.SiteVerificationTag }}
-<meta name="msvalidate.01" content="{{ .Site.Params.analytics.bing.SiteVerificationTag }}" />
-{{- end}}
-<!-- Styles -->
-{{- $common := (resources.Match "css/*.css") | resources.Concat "assets/css/common.css" }}
-{{- $extended := (resources.Match "css/extended/*.css") | resources.Concat "assets/css/extended.css" }}
-{{- /*  bundle all required css  */}}
-{{- /*  Add extended css after theme style */ -}}
-{{- $stylesheet := (slice $common $extended) | resources.Concat "assets/css/stylesheet.css" | minify }}
 
+<!-- Styles -->
+{{ $sass := resources.Get "scss/style.scss" }}
+{{ $stylesheet := $sass | resources.ToCSS | minify }}
 {{- if not .Site.Params.assets.disableFingerprinting }}
 {{- $stylesheet := $stylesheet | fingerprint -}}
 <link href="{{ $stylesheet.RelPermalink }}" integrity="{{ $stylesheet.Data.Integrity }}" rel="preload stylesheet"
@@ -40,6 +28,7 @@
 {{- else}}
 <link href="{{ $stylesheet.RelPermalink }}" rel="preload stylesheet" as="style">
 {{- end}}
+
 <!-- Search -->
 {{- if (eq .Layout `search`) -}}
 <link rel="preload" as="fetch" href="../index.json" crossOrigin="anonymous">
@@ -55,14 +44,11 @@
 {{- end -}}
 
 <!-- Favicons -->
-<link rel="icon" href="{{- .Site.Params.assets.favicon | default "favicon.ico" | absURL -}}">
-<link rel="icon" type="image/png" sizes="16x16" href="
-    {{- .Site.Params.assets.favicon16x16 | default "favicon-16x16.png" | absURL -}}">
-<link rel="icon" type="image/png" sizes="32x32" href="
-    {{- .Site.Params.assets.favicon32x32 | default "favicon-32x32.png" | absURL -}}">
-<link rel="apple-touch-icon" href="
-    {{- .Site.Params.assets.apple_touch_icon | default "apple-touch-icon.png" | absURL -}}">
-<link rel="mask-icon" href="{{- .Site.Params.assets.safari_pinned_tab | default "safari-pinned-tab.svg" | absURL -}}">
+<link rel="shortcut icon" href="{{- "favicon.ico" | absURL -}}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{- "favicon-16x16.png" | absURL -}}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{- "favicon-32x32.png" | absURL -}}">
+<link rel="apple-touch-icon" href="{{- "apple-touch-icon.png" | absURL -}}">
+<link rel="mask-icon" href="{{- "safari-pinned-tab.svg" | absURL -}}">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <!-- Generator -->
@@ -74,12 +60,10 @@
 {{- range .AllTranslations -}}
 <link rel="alternate" hreflang="{{- .Lang -}}" href="{{- .Permalink -}}" />
 {{ end }}
-{{- partial "extend_head.html" . -}}
 <!-- Misc -->
 {{- if hugo.IsProduction | or (eq .Site.Params.env "production") }}
-{{- template "_internal/google_analytics_async.html" . }}
 {{- template "_internal/google_news.html" . }}
-{{- template "partials/templates/opengraph.html" . }}
-{{- template "partials/templates/twitter_cards.html" . }}
+{{- template "_internal/opengraph.html" . }}
+{{- template "_internal/twitter_cards.html" . }}
 {{- template "partials/templates/schema_json.html" . }}
 {{- end }}

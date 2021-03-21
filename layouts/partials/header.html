@@ -64,13 +64,7 @@
     <nav class="nav">
         <div class="logo">
             {{- if .Title }}
-            <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ .Site.Params.label.text | default .Site.Title }} (Alt + H)">
-                {{- if .Site.Params.label.icon }}
-                <img src="{{- .Site.Params.label.icon -}}" alt="logo" aria-label="logo"
-                    height="{{- .Site.Params.label.iconHeight | default "30px" -}}">
-                {{- end -}}
-                {{- .Site.Params.label.text | default .Site.Title -}}
-            </a>
+            <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ .Site.Title }} (Alt + H)">{{- .Site.Title -}}</a>
             {{- end }}
             <span class="logo-switches">
                 {{- if (not .Site.Params.disableThemeToggle) }}
@@ -106,11 +100,7 @@
                     <li>
                         <a href="{{- .Permalink -}}" title="{{ .Language.LanguageName | default (.Lang | humanize) }}"
                             aria-label="{{ .Language.LanguageName | default (.Lang | humanize) }}">
-                            {{- if (and $.Site.Params.displayFullLangName (.Language.LanguageName)) }}
-                            {{- .Language.LanguageName | emojify -}}
-                            {{- else }}
                             {{- .Lang | humanize -}}
-                            {{- end -}}
                         </a>
                     </li>
                     {{- end -}}
