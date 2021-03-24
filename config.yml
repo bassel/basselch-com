@@ -8,6 +8,9 @@ buildDrafts: true
 buildFuture: false
 buildExpired: false
 
+build:
+  writeStats: true
+
 permalinks:
   blog: /a/:slug/
   page: /:slug/
@@ -25,22 +28,16 @@ languages:
       main:
         - name: About
           url: about
-          weight: 1
         - name: Now
           url: now
-          weight: 2
         - name: Blog
           url: blog
-          weight: 3
         - name: Books
           url: books
-          weight: 4
         - name: Archive
           url: archives
-          weight: 5
         - name: Search
           url: search/
-          weight: 10
 
   ar:
     contentDir: content/ar
@@ -57,16 +54,12 @@ languages:
       main:
         - name: المقالات
           url: blog
-          weight: 3
         - name: الكتب
           url: books
-          weight: 4
         - name: الأرشيف
           url: archives
-          weight: 5
         - name: البحث
           url: search/
-          weight: 10
 
 outputs:
   home:
@@ -75,11 +68,8 @@ outputs:
     - JSON
 
 params:
-  env: production # to enable opengraph, twitter-cards and schema.
   description: "I'm a computer scientist who enjoys learning new stuff and sharing knowlegde with others. Currently in permanent beta: learning, improving, evolving..."
   author: Bassel Cheaib
-  defaultTheme: dark
-  disableThemeToggle: false
   ShowShareButtons: true
   ShowReadingTime: false
   ShowPostNavLinks: true
@@ -114,6 +104,16 @@ params:
       url: "https://go.basselch.com/email"
     - name: buymeacoffee
       url: "https://go.basselch.com/bmc"
+    - name: Rss
+      url: "index.xml"
+
+  navSocial:
+    - name: twitter
+      url: "https://go.basselch.com/tw"
+    - name: telegram
+      url: "https://go.basselch.com/tm"
+    - name: email
+      url: "https://go.basselch.com/email"
     - name: Rss
       url: "index.xml"
 

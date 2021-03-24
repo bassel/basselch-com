@@ -8,8 +8,7 @@
   translation:
     one: "دقيقة واحدة"
     two: "دقيقتان"
-    few: "بضع ثوان"
-    zero: "الآن"
+    few: "أقل من دقيقة"
     other: "دقائق {{ .Count }}"
 
 - id: toc
