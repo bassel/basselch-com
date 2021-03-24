@@ -1,6 +1,19 @@
 {{ define "main" }}
-<article class="text-gray-700 sm:mx-12 mb-16 prose lg:prose-lg prose-blue">
-    <h1>{{ .Title }}</h1>
-    {{ .Content }}
+<article class="mx-auto prose dark:prose-dark prose-blue lg:prose-lg max-w-4xl">
+    <header>
+        <h1 {{if .Params.showLastUpdated }}style="margin-bottom: 0;"{{ end }}>
+          {{ .Title }}
+          {{- if .Draft }}<span class="text-sm text-gray-600 dark:text-gray-300 lg:text-lg align-top">&nbsp;&nbsp;[{{ i18n "draft" }}]</span>{{- end }}
+        </h1>
+        {{if .Params.showLastUpdated }}
+        <p class="m-0 p-0 mt-2 mb-8 text-gray-600 dark:text-gray-300">
+            {{ i18n "last_updated" }}: 
+            <time datetime='{{ dateFormat "2006-01-02T15:04:05-07:00" (default .Date (.Lastmod)) }}'>
+                {{ dateFormat "02/01/2006" (default .Date (.Lastmod)) }}
+            </time>
+        </p>
+        {{ end }}
+    </header>
+    {{- partial "helpers/anchored_headings.html" .Content -}}
 </article>
 {{ end }}

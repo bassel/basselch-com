@@ -18,7 +18,7 @@ permalinks:
 
 minify:
   disableXML: true
-  minifyOutput: true
+  # minifyOutput: true
 
 languages:
   en:
@@ -28,16 +28,22 @@ languages:
       main:
         - name: About
           url: about
+          weight: 1
         - name: Now
           url: now
+          weight: 2
         - name: Blog
           url: blog
+          weight: 10
         - name: Books
           url: books
+          weight: 20
         - name: Archive
           url: archives
+          weight: 30
         - name: Search
-          url: search/
+          url: search
+          weight: 40
 
   ar:
     contentDir: content/ar
@@ -54,12 +60,16 @@ languages:
       main:
         - name: المقالات
           url: blog
+          weight: 10
         - name: الكتب
           url: books
+          weight: 20
         - name: الأرشيف
           url: archives
+          weight: 30
         - name: البحث
-          url: search/
+          url: search
+          weight: 40
 
 outputs:
   home:

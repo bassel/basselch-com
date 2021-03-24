@@ -1,3 +1,38 @@
-.starter {
-  color: blue;
+.utterances {
+  max-width: unset;
+}
+
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+  @apply inline-flex mx-2 text-gray-400 dark:text-gray-600 opacity-90 font-normal;
+}
+
+#theme-toggle svg {
+  height: 18px;
+}
+
+button#theme-toggle  {
+  font-size: 26px;
+  margin: auto 4px
+}
+
+html.dark #moon {
+  vertical-align: middle;
+  display: none
+}
+
+html:not(.dark) #sun {
+  display: none
+}
+
+#top-link {
+  transition: visibility .5s ease-in-out, opacity .8s ease-in-out;
+}
+
+.highlighted-div {
+  border-inline-start-width: 3px;
 }

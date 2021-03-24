@@ -19,3 +19,9 @@
   
 - id: home
   translation: "الصفحة الرئيسية"
+
+- id: draft
+  translation: "مسودّة"
+
+- id: last_updated
+  translation: "آخر تحديث"
