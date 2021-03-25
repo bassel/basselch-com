@@ -3,7 +3,7 @@
         <a href='{{ "" | absLangURL }}' class="font-bold" accesskey="h" title="{{ .Site.Title }} (Alt + H)">{{- .Site.Title -}}</a>
     {{- end }}
 
-    <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+    <button id="theme-toggle" onclick="toggleTheme()" accesskey="t" title="(Alt + T)">
         <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
             fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
@@ -23,14 +23,13 @@
     </button>
 
     {{ $lang := .Lang}}
-    {{ $separator := or .Title (not .Site.Params.disableThemeToggle)}}
 
     {{- with $.Site.Home.AllTranslations }}
-        <ul class="inline-flex font-bold space-x-2 text-base self-center">
-            {{- if $separator }}<li>|</li>{{ end }}
+        <ul class="inline-flex font-bold text-base self-center">
+            <li class="mx-1">|</li>
             {{- range . -}}
                 {{- if ne $lang .Lang }}
-                    <li>
+                    <li class="mx-1">
                         <a href="{{- .Permalink -}}" title="{{ .Language.LanguageName | default (.Lang | humanize) }}"
                             aria-label="{{ .Language.LanguageName | default (.Lang | humanize) }}">
                             {{- .Lang | humanize -}}

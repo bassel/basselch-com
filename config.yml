@@ -38,12 +38,9 @@ languages:
         - name: Books
           url: books
           weight: 20
-        - name: Archive
-          url: archives
-          weight: 30
         - name: Search
           url: search
-          weight: 40
+          weight: 30
 
   ar:
     contentDir: content/ar
@@ -64,12 +61,9 @@ languages:
         - name: الكتب
           url: books
           weight: 20
-        - name: الأرشيف
-          url: archives
-          weight: 30
         - name: البحث
           url: search
-          weight: 40
+          weight: 30
 
 outputs:
   home:

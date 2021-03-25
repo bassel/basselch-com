@@ -38,7 +38,12 @@ function loadSearch() {
 
 
 function itemGen(name, link) {
-    return `<li class="post-entry"><header class="entry-header">${name}&nbsp;»</header><a href="${link}" aria-label="${name}"></a></li>`
+    return `
+    <li class="list-none my-2">
+        <a class="block text-lg font-semibold p-2 focus:outline-none rounded-md dark:bg-gray-700 dark:focus:bg-gray-300 dark:focus:text-gray-900 dark:hover:bg-gray-300 dark:hover:text-gray-900 bg-gray-200 focus:bg-gray-700 focus:text-gray-100 hover:bg-gray-700 hover:text-gray-100" 
+        href="${link}" aria-label="${name}">${name}&nbsp;»</a>
+    </li>
+    `;
 }
 
 function activeToggle() {

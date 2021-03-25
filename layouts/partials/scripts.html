@@ -18,7 +18,7 @@
         });
     });
 
-    document.getElementById("theme-toggle").addEventListener("click", () => {
+    function toggleTheme() {
         if (document.documentElement.className.includes("dark")) {
             document.documentElement.classList.remove('dark');
             document.documentElement.dataset.scheme = 'light';
@@ -31,7 +31,8 @@
         window.dispatchEvent(new CustomEvent('onColorSchemeChange', {
             detail: document.documentElement.dataset.scheme
         }));
-    });
+        document.activeElement.blur();
+    }
 
     const topLinkBtn = document.getElementById("top-link");
 

@@ -1,0 +1,26 @@
+{{- if .Params.cover.image }}
+    {{- $alt := (.Params.cover.alt | default .Params.cover.caption | plainify) }}
+    <figure class="text-center mb-2 lg:mb-4">
+        {{- $cover := (.Page.Resources.ByType "image").GetMatch (printf "*%s*" (.Params.cover.image)) }}
+
+        {{- if $cover -}}{{/* i.e it is present in page bundle */}}
+            {{- $sizes := (slice "360" "480" "720" "1080" "1500") }}
+            {{- $processableFormats := (slice "jpg" "jpeg" "png" "tif" "bmp" "gif") }}
+            {{- $prod := (hugo.IsProduction | or (eq .Site.Params.env "production")) }}
+            {{- if (and (in $processableFormats $cover.MediaType.SubType) (ne .Site.Params.cover.responsiveImages false) (eq $prod true)) }}
+                <img class="rounded-lg pointer-events-none" srcset='{{- range $size := $sizes -}}
+                                {{- if (ge $cover.Width $size) -}}
+                                    {{ printf "%s %s" (($cover.Resize (printf "%sx" $size)).Permalink) (printf "%sw ," $size) -}}
+                                {{ end }}
+                            {{- end -}}{{$cover.Permalink }} {{printf "%dw" ($cover.Width)}}'
+                    sizes="(min-width: 768px) 720px, 100vw" src="{{ $cover.Permalink }}" alt="{{ $alt }}" />
+            {{- else }}{{/* Unprocessable image or responsive images disabled */}}
+                <img class="rounded-lg pointer-events-none" src="{{ (path.Join .RelPermalink .Params.cover.image) | absURL }}" alt="{{ $alt }}">
+            {{- end }}
+        {{- else }} {{/* For absolute urls and external links, no img processing here */}}
+            <img class="rounded-lg pointer-events-none" src="{{ (.Params.cover.image) | absURL }}" alt="{{ $alt }}">
+        {{- end }}
+
+        {{ with .Params.cover.caption }}<p>{{ . | markdownify }}</p>{{- end }}
+    </figure>
+{{- end }}

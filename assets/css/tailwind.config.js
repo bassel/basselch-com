@@ -1,6 +1,16 @@
+const colors = require('tailwindcss/colors');
+
 module.exports = {
   darkMode: 'class',
   theme: {
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      black: colors.black,
+      white: colors.white,
+      gray: colors.blueGray,
+      blue: colors.blue,
+    },
     extend: {
       fontSize: {
         'md': '.925rem',
@@ -9,15 +19,15 @@ module.exports = {
         'border': 'border',
       },
       colors: {
-        gray: {
-          950: '#080b12'
+        blue: {
+          '75': '#E5F0FF'
         },
       },
       typography: (theme) => ({
         dark: {
           css: [
             {
-              color: theme('colors.gray.300'),
+              color: theme('colors.gray.200'),
               '[class~="lead"]': {
                 color: theme('colors.gray.200'),
               },

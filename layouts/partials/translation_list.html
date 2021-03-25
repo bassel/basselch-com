@@ -1,0 +1,12 @@
+{{- if .IsTranslated -}}
+    {{- if (ne .Layout "search")}}
+        {{- if or .Params.author $.Site.Params.author (.Param "ShowReadingTime") (not .Date.IsZero) }}&nbsp;|&nbsp;{{- end -}}
+    {{- end }}
+
+    <ul>
+        {{- i18n "translations" | default "Translations"}}:
+        {{- range .Translations }}
+            <li class="inline-flex list-none m-1"><a href="{{ .Permalink }}">{{- .Lang | humanize -}}</a></li>
+        {{- end }}
+    </ul>
+{{- end }}
