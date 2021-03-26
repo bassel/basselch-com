@@ -95,3 +95,23 @@ html:not(.dark) #sun {
 .share-buttons svg:active {
   transform: scale(.96)
 }
+
+.social-icons a svg {
+  @apply h-7 w-7;
+}
+.social-icons a:not(:last-of-type) {
+  margin-inline-end: 12px;
+}
+
+#home-info {
+  @apply text-gray-700 dark:text-gray-200;
+}
+#home-info .style-link a {
+  @apply font-bold text-blue-600 dark:text-blue-400 no-underline hover:underline;
+}
+#home-info h2 {
+  @apply text-2xl lg:text-3xl font-bold border-b-2 border-opacity-40 pb-3 mb-3 lg:mb-4 mt-10 border-gray-700 dark:border-gray-200;
+}
+#home-info p {
+  @apply max-w-3xl my-2 text-base lg:text-lg;
+}

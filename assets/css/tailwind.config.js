@@ -20,6 +20,9 @@ module.exports = {
         'border': 'border',
       },
       colors: {
+        gray: {
+          '900': '#0c1322',
+        },
         blue: {
           '75': '#E5F0FF',
         },

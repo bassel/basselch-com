@@ -4,7 +4,7 @@
     <body id="top" class="flex flex-col min-h-screen text-gray-900 dark:text-white bg-white dark:bg-gray-900">
         {{- partial "dev/dev-size-indicator.html" . -}}
         {{- partial "header.html" . -}}
-        <main class="flex-1 {{ if not .IsHome }}mx-5 sm:mx-8 md:mx-10 lg:mx-16{{ end }} mb-10 mt-6 sm:mt-8">
+        <main class="flex-1 {{ if not .IsHome }}mx-5 sm:mx-8 md:mx-10 lg:mx-16 mt-6 sm:mt-8{{ end }} mb-10">
             {{- block "main" . }}{{- end }}
         </main>
         <!-- {{- partial "dev/dev-parameters.html" . -}} -->
