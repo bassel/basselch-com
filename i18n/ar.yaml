@@ -26,3 +26,12 @@
   translation: "الكتب"
 - id: view-all
   translation: "عرض الكل"
+
+- id: date-completed
+  translation: "تاريخ إنهاء القراءة"
+- id: author
+  translation:
+    one : "الكاتب"
+    other: "الكتّاب"
+- id: rating
+  translation: "التقييم"

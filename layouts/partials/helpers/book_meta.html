@@ -1,0 +1,17 @@
+<ul>
+    {{ with .Param "isbn" }}
+        <li class="flex"><span class="font-bold">ISBN:&nbsp;</span> {{ . }}</li>
+    {{ end }}
+
+    {{ with (partial "helpers/author.html" . ) }}
+        <li><span class="font-bold">{{ i18n "author" (cond (in . ',') 2 1) }}:</span> {{ . }}</li>
+    {{end}}
+
+    {{ with .Param "dateCompleted" }}
+        <li><span class="font-bold">{{ i18n "date-completed" }}:</span> {{ dateFormat "02/01/2006" . }}</li>
+    {{ end }}
+
+    {{ with .Param "rating" }}
+        <li><span class="font-bold">{{ i18n "rating" }}:</span> {{ . }}/10</li>
+    {{ end }}
+</ul>

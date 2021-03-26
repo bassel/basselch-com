@@ -24,3 +24,12 @@
   translation: "Recent books"
 - id: view-all
   translation: "View all"
+
+- id: date-completed
+  translation: "Date completed"
+- id: author
+  translation:
+    one : "Author"
+    other: "Authors"
+- id: rating
+  translation: "Rating"

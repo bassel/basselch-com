@@ -1,0 +1,14 @@
+{{- if .Params.cover.image }}
+    {{- $alt := (.Params.cover.alt | default .Params.cover.caption | plainify) }}
+    <figure>
+        {{- $cover := (.Page.Resources.ByType "image").GetMatch (printf "*%s*" (.Params.cover.image)) }}
+        {{- if $cover -}}{{/* i.e it is present in page bundle */}}
+            {{ with $cover }}
+                {{- $resized := .Resize "200x" -}}
+                <img class="rounded-lg" loading="lazy" src="{{ $resized.Permalink }}" alt="{{ $.Title }}" />
+            {{ end }}
+        {{- else }} {{/* For absolute urls and external links, no img processing here */}}
+            <img class="rounded-lg" src="{{ (.Params.cover.image) | absURL }}" alt="{{ $alt }}">
+        {{- end }}
+    </figure>
+{{- end }}
