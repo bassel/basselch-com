@@ -16,6 +16,9 @@ permalinks:
   page: /:slug/
   books: /b/:slug/
 
+taxonomies:
+  tag: tags
+
 minify:
   disableXML: true
   # minifyOutput: true
@@ -23,6 +26,7 @@ minify:
 languages:
   en:
     contentDir: content/en
+    languageCode: en
     weight: 1
     menu:
       main:
@@ -44,9 +48,12 @@ languages:
 
   ar:
     contentDir: content/ar
+    languageCode: ar
     languagedirection: rtl
     weight: 2
     title: باسل شعيب
+    permalinks:
+      books: /b/:filename/
     homeInfoParams:
       Title: "مرحبًا بكم في حديقتي الرقمية"
       Content: >
@@ -129,10 +136,6 @@ params:
   #     threshold: 0.4
   #     minMatchCharLength: 0
   #     keys: ["title", "permalink", "summary", "content"]
-
-taxonomies:
-  tag: tags
-  series: series
 
 privacy:
   vimeo:

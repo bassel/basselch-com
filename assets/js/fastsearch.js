@@ -37,13 +37,12 @@ function loadSearch() {
 }
 
 
-function itemGen(name, link) {
-    return `
-    <li class="list-none my-2">
-        <a class="block text-lg font-semibold p-2 focus:outline-none rounded-md dark:bg-gray-700 dark:focus:bg-gray-300 dark:focus:text-gray-900 dark:hover:bg-gray-300 dark:hover:text-gray-900 bg-gray-200 focus:bg-gray-700 focus:text-gray-100 hover:bg-gray-700 hover:text-gray-100" 
-        href="${link}" aria-label="${name}">${name}&nbsp;»</a>
-    </li>
-    `;
+function itemGen(name, link, type, bookLabel) {
+    var itemType = type == "books" ? `<span class="text-md rounded-lg px-2 py-1 bg-purple-200 dark:bg-purple-700" style="margin-inline-end: 5px">${bookLabel}</span>` : ``;
+    return `<li class="list-none">
+        <a class="block my-1 p-1 sm:p-2 md:p-3 text-lg font-semibold focus:outline-none rounded-md dark:focus:bg-gray-700 dark:hover:bg-gray-700 focus:bg-gray-100 hover:bg-gray-100 items-center" 
+        href="${link}" aria-label="${name}">${itemType} ${name}</a>
+    </li>`;
 }
 
 function activeToggle() {
@@ -66,8 +65,9 @@ sInput.onkeyup = function (e) {
         // build our html if result exists
         let resultSet = ''; // our results bucket
 
+        const book = document.documentElement.lang === "ar" ? "كتاب" : "Book";
         for (let item in results) {
-            resultSet = resultSet + itemGen(results[item].item.title, results[item].item.permalink)
+            resultSet = resultSet + itemGen(results[item].item.title, results[item].item.permalink, results[item].item.type, book)
         }
 
         resList.innerHTML = resultSet;

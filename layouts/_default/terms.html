@@ -1,0 +1,27 @@
+{{ define "main" }}
+<div class="mx-auto max-w-4xl">
+    {{- if .Title }}
+        <header>
+            <h1 class="text-4xl lg:text-5xl font-bold">{{ .Title }}</h1>
+            {{- if .Description }}
+                <p class="mt-4 text-lg md:text-xl lg:text-2xl text-gray-800 dark:text-gray-200 text-opacity-90">{{ .Description }}</p>
+            {{- end }}
+        </header>
+    {{- end }}
+
+    <ul class="mt-10">
+        {{- $type := .Type }}
+        {{- range $key, $value := .Data.Terms.Alphabetical }}
+            {{- $name := .Name }}
+            {{- $count := .Count }}
+            {{- with $.Site.GetPage (printf "/%s/%s" $type $name) }}
+                <li class="inline-block m-1 font-medium">
+                    <a class="block py-2 px-4 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-md" href="{{ .Permalink }}">
+                        {{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup> 
+                    </a>
+                </li>
+            {{- end }}
+        {{- end }}
+    </ul>
+</div>
+{{ end }}

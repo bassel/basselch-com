@@ -29,6 +29,13 @@ html:not(.dark) #sun {
   display: none
 }
 
+[dir=ltr] .floating-nav, [dir=auto] .floating-nav {
+  @apply right-6;
+}
+[dir=rtl] .floating-nav {
+  @apply left-6;
+}
+
 #top-link {
   transition: visibility .5s ease-in-out, opacity .8s ease-in-out;
 }
@@ -43,7 +50,7 @@ html:not(.dark) #sun {
 }
 ::-webkit-scrollbar-thumb {
   border: 5px solid;
-  @apply bg-gray-300 dark:bg-gray-600 hover:bg-gray-600 dark:hover:bg-gray-300 rounded-lg border-gray-50 dark:border-gray-900
+  @apply bg-gray-300 dark:bg-gray-600 hover:bg-gray-600 dark:hover:bg-gray-300 rounded-lg border-white dark:border-gray-900
 }
 
 @media screen and (min-width: 768px) {
@@ -62,4 +69,29 @@ html:not(.dark) #sun {
 }
 .toc ul {
   list-style-type: disc;
+}
+
+.pagenav .prev {
+  border-start-start-radius: 8px;
+  border-end-start-radius: 8px;
+  
+}
+.pagenav .next {
+  border-start-end-radius: 8px;
+  border-end-end-radius: 8px;
+  margin-inline-start: auto;
+  text-align: end;
+}
+
+.share-buttons a:not(:last-of-type) {
+  margin-inline-end: 12px
+}
+.share-buttons a svg {
+  height: 30px;
+  width: 30px;
+  fill: currentColor;
+  transition: transform .1s
+}
+.share-buttons svg:active {
+  transform: scale(.96)
 }

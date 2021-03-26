@@ -23,3 +23,6 @@
 
 - id: last_updated
   translation: "Last updated"
+
+- id: book
+  translation: "Book"

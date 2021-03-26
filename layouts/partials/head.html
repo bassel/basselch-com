@@ -70,9 +70,15 @@
         if (localStorage.getItem("pref-theme") === "light") {
             document.documentElement.classList.remove('dark');
             document.documentElement.dataset.scheme = 'light';
-        } else {
+        } else if (localStorage.getItem("pref-theme") === "dark") {
             document.documentElement.classList.add('dark');
             document.documentElement.dataset.scheme = 'dark';
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.dataset.scheme = 'light';
         }
     </script>
 </head>

@@ -11,7 +11,7 @@
     {{ $.Scratch.Set "tags" (delimit ($hashtags.Get "tags") ",")  }}
 {{- end }}
 
-<div class="share-buttons">
+<div class="share-buttons flex my-4 p-2 justify-center overflow-x-auto rounded-lg bg-gray-100 dark:bg-gray-700">
     <a target="_blank" rel="noopener noreferrer" aria-label="share {{ $title | plainify }} on twitter"
         href="https://twitter.com/intent/tweet/?text={{ $title }}&amp;url={{ $pageurl }}&amp;hashtags={{- $.Scratch.Get "tags" -}}">
         <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">

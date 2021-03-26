@@ -10,6 +10,7 @@ module.exports = {
       white: colors.white,
       gray: colors.blueGray,
       blue: colors.blue,
+      purple: colors.violet,
     },
     extend: {
       fontSize: {
@@ -20,7 +21,7 @@ module.exports = {
       },
       colors: {
         blue: {
-          '75': '#E5F0FF'
+          '75': '#E5F0FF',
         },
       },
       typography: (theme) => ({

@@ -25,3 +25,6 @@
 
 - id: last_updated
   translation: "آخر تحديث"
+
+- id: book
+  translation: "كتاب"
