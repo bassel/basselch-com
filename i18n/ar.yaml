@@ -31,7 +31,7 @@
   translation: "تاريخ إنهاء القراءة"
 - id: author
   translation:
-    one : "الكاتب"
+    one : "بقلم"
     other: "الكتّاب"
 - id: rating
   translation: "التقييم"

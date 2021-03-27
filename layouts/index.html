@@ -1,9 +1,9 @@
 {{ define "main" }}
     {{- with $.Site.Params.homeInfoParams }}
-        <article class="bg-gray-100 dark:bg-gray-800 p-10 md:p-16">
+        <article class="bg-gray-100 dark:bg-gray-900 p-10 md:p-16">
             <div class="max-w-4xl mx-auto">
                 <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold">{{- .Title | markdownify }}</h1>
-                <section class="mt-2 sm:mt-3 md:mt-4 lg:mt-6 text-lg md:text-xl lg:text-xl text-gray-900 dark:text-gray-200 text-opacity-90">
+                <section class="mt-2 sm:mt-3 md:mt-4 lg:mt-6 text-lg md:text-xl lg:text-xl text-gray-950 dark:text-gray-200 text-opacity-90">
                     <p>{{- .Content | markdownify }}</p>
                 </section>
                 <footer class="social-icons flex overflow-y-scroll mt-6 lg:mt-8">
@@ -36,7 +36,7 @@
                 {{ range first 5 $posts -}}
                     <div class="rounded-none">
                         <a class="flex p-1 my-1 md:my-0 sm:p-2 md:p-3 text-lg font-semibold focus:outline-none rounded-md dark:focus:bg-gray-700 dark:hover:bg-gray-700 focus:bg-gray-100 hover:bg-gray-100 items-center" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}">
-                            <span class="text-md opacity-60">{{ .Date.Format "02/01" }}</span>
+                            <span class="text-md opacity-60 font-mono">{{ .Date.Format "02/01" }}</span>
                             <h3 class="mx-4 font-medium flex-grow">{{- .Title | markdownify }}</h3>
                         </a>
                     </div>
@@ -56,8 +56,14 @@
                 {{ range first 5 $books -}}
                     <div class="rounded-none">
                         <a class="flex p-1 my-1 md:my-0 sm:p-2 md:p-3 text-lg font-semibold focus:outline-none rounded-md dark:focus:bg-gray-700 dark:hover:bg-gray-700 focus:bg-gray-100 hover:bg-gray-100 items-center" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}">
-                            <span class="text-md opacity-60">{{ .Date.Format "02/01" }}</span>
-                            <h3 class="mx-4 font-medium flex-grow">{{- .Title | markdownify }}</h3>
+                            <span class="w-20 flex-shrink-0">{{ partial "book_cover" . }}</span>
+                            <h3 class="mx-4 font-medium flex-grow">
+                                {{- .Title | markdownify }}
+                                {{ with .Param "subtitle" }}
+                                    <br>
+                                    <span class="mt-1 text-base opacity-70">{{ . }}</span>
+                                {{ end }}
+                            </h3>
                         </a>
                     </div>
                 {{ end }}

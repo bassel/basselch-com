@@ -7,12 +7,10 @@
         {{- end }}
     </header>
 
-    {{ $isBooksDir := eq .Type "books" }}
-
     {{- range .Pages.GroupByPublishDate "2006" }}
         {{- if ne .Key "0001" }}
             <section class="mt-8">
-                <h2 class="text-2xl lg:text-3xl font-bold border-b-2 border-opacity-80 pb-2 mx-1 md:mx-3 mb-2 text-blue-800 dark:text-blue-200 border-blue-800 dark:border-blue-200">
+                <h2 class="text-2xl lg:text-3xl font-bold border-b-2 border-opacity-80 pb-2 mx-1 md:mx-3 mb-2 text-blue-800 dark:text-blue-200 border-blue-800 dark:border-blue-200 font-mono">
                     {{- replace .Key "0001" "" }}
                 </h2>
                 <div class="divide-y md:divide-none mx-1 md:mx-0">
@@ -28,9 +26,6 @@
                                             <span class="mt-1 text-base opacity-70">{{ . }}</span>
                                         {{ end }}
                                     </h3>
-                                    {{ if and (eq .Type "books") (not $isBooksDir) }}
-                                        <span class="text-md rounded-lg px-2 bg-purple-200 dark:bg-purple-700">{{ i18n "book" }}</span>
-                                    {{ end }}
                                 </a>
                             </div>
                         {{- end }}
