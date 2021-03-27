@@ -20,6 +20,8 @@
   translation: "آخر تحديث"
 - id: book
   translation: "كتاب"
+- id: featured-posts
+  translation: "مقالات مميّزة"
 - id: recent-posts
   translation: "المقالات"
 - id: recent-books

@@ -15,6 +15,7 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
+      blueGray: colors.blueGray,
       black: colors.black,
       white: colors.white,
       gray: colors.gray,
@@ -32,11 +33,24 @@ module.exports = {
         gray: {
           '950': '#222222',
         },
-        blue: {
-          '75': '#E5F0FF',
-        },
       },
       typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            a: {
+              textDecoration: 'none',
+              '&:hover': {
+                textDecoration: 'underline'
+              }
+            },
+            'code::before': {
+              content: ''
+            },
+            'code::after': {
+              content: ''
+            }
+          }
+        },
         rtl: {
           css: [
             {
@@ -102,7 +116,7 @@ module.exports = {
                 color: theme('colors.gray.200'),
               },
               a: {
-                color: theme('colors.white'),
+                color: theme('colors.blue.400'),
               },
               strong: {
                 color: theme('colors.white'),
@@ -160,7 +174,12 @@ module.exports = {
   },
   variants: {
     extend: {
+      display: ['dark'],
       typography: ['dark', 'direction'],
+      inset: ['direction'],
+      padding: ['direction'],
+      margin: ['direction'],
+      borderWidth: ['direction'],
     },
   },
   plugins: [

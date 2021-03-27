@@ -8,7 +8,7 @@
                 </section>
                 <footer class="social-icons flex overflow-y-scroll mt-6 lg:mt-8">
                     {{- range $.Site.Params.socialIcons -}}
-                        <a href='{{ trim .url " " }}' target="_blank" rel="noopener noreferrer me" title="{{ .name | humanize }}">
+                        <a href='{{ trim .url " " }}' rel="noopener noreferrer me" title="{{ .name | humanize }}">
                             {{ partial "helpers/svg_icons.html" . }}
                         </a>
                     {{- end -}}
@@ -24,7 +24,23 @@
             </section>
         {{ end }}
 
+        {{ $featured := where .Site.RegularPages "Params.featured" true }}
+        {{ if $featured }}
+            <section class="mx-auto max-w-4xl">
+                <h2>{{ i18n "featured-posts"}}</h2>
+                {{ range first 5 $featured -}}
+                    <div class="rounded-none">
+                        <a class="flex p-1 my-1 md:my-0 sm:p-2 md:p-3 text-lg font-semibold focus:outline-none rounded-md dark:focus:bg-gray-700 dark:hover:bg-gray-700 focus:bg-gray-100 hover:bg-gray-100 items-center" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}">
+                            <span class="text-md opacity-60 font-mono">{{ .Date.Format "02/01/2006" }}</span>
+                            <h3 class="mx-4 font-medium flex-grow">{{- .Title | markdownify }}</h3>
+                        </a>
+                    </div>
+                {{ end }}
+            </section>
+        {{ end }}
+
         {{ $posts := where .Site.RegularPages "Type" "eq" "blog" }}
+        {{ $posts = where $posts "Params.featured" "ne" true }}
         {{ if $posts }}
             <section class="mx-auto max-w-4xl">
                 <h2 class="flex">
@@ -36,7 +52,7 @@
                 {{ range first 5 $posts -}}
                     <div class="rounded-none">
                         <a class="flex p-1 my-1 md:my-0 sm:p-2 md:p-3 text-lg font-semibold focus:outline-none rounded-md dark:focus:bg-gray-700 dark:hover:bg-gray-700 focus:bg-gray-100 hover:bg-gray-100 items-center" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}">
-                            <span class="text-md opacity-60 font-mono">{{ .Date.Format "02/01" }}</span>
+                            <span class="text-md opacity-60 font-mono">{{ .Date.Format "02/01/2006" }}</span>
                             <h3 class="mx-4 font-medium flex-grow">{{- .Title | markdownify }}</h3>
                         </a>
                     </div>
@@ -45,6 +61,7 @@
         {{ end }}
         
         {{ $books := where .Site.RegularPages "Type" "eq" "books" }}
+        {{ $books = where $books "Params.featured" "ne" true }}
         {{ if $books }}
             <section class="mx-auto max-w-4xl">
                 <h2 class="flex">

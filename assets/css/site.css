@@ -30,37 +30,8 @@ h6:hover .anchor {
   @apply inline-flex mx-2 text-gray-400 dark:text-gray-600 opacity-90 font-normal;
 }
 
-#theme-toggle svg {
-  height: 18px;
-}
-
-button#theme-toggle  {
-  font-size: 26px;
-  margin: auto 4px
-}
-
-html.dark #moon {
-  vertical-align: middle;
-  display: none
-}
-
-html:not(.dark) #sun {
-  display: none
-}
-
-[dir=ltr] .floating-nav, [dir=auto] .floating-nav {
-  @apply right-6;
-}
-[dir=rtl] .floating-nav {
-  @apply left-6;
-}
-
 #top-link {
   transition: visibility .5s ease-in-out, opacity .8s ease-in-out;
-}
-
-.highlighted-div {
-  border-inline-start-width: 3px;
 }
 
 ::-webkit-scrollbar-track {
@@ -122,9 +93,6 @@ html:not(.dark) #sun {
   margin-inline-end: 12px;
 }
 
-#home-info {
-  @apply text-gray-700 dark:text-gray-200;
-}
 #home-info .style-link a {
   @apply font-bold text-blue-600 dark:text-blue-400 no-underline hover:underline;
 }
@@ -133,4 +101,8 @@ html:not(.dark) #sun {
 }
 #home-info p {
   @apply max-w-3xl my-2 text-base lg:text-lg;
+}
+
+p code {
+  @apply bg-gray-200 dark:bg-gray-700 mx-1 p-1 rounded-md md:whitespace-nowrap;
 }

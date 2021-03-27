@@ -1,7 +1,7 @@
 {{ define "main" }}
 <article class="mx-auto max-w-4xl">
     <header>
-        <h1 class="text-4xl lg:text-5xl font-bold {{if .Params.showLastUpdated }}mb-0{{ end }}">
+        <h1 class="text-4xl lg:text-5xl font-bold {{if .Params.showLastUpdated }}mb-2{{ end }}">
           {{ .Title }}
           {{- if .Draft }}<span class="text-sm text-gray-600 dark:text-gray-300 lg:text-lg align-middle">&nbsp;&nbsp;[{{ i18n "draft" }}]</span>{{- end }}
         </h1>
@@ -15,6 +15,6 @@
         {{ end }}
         <hr class="mt-4 mb-8">
     </header>
-    <div class="prose dark:prose-dark prose-blue rtl:prose-rtl lg:prose-lg max-w-2xl">{{- partial "helpers/anchored_headings.html" .Content -}}</div> 
+    <div class="prose dark:prose-dark rtl:prose-rtl prose-blue lg:prose-lg max-w-2xl">{{- partial "helpers/anchored_headings.html" .Content -}}</div> 
 </article>
 {{ end }}

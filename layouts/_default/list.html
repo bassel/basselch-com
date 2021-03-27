@@ -3,7 +3,7 @@
     <header class="mx-1 md:mx-3">
         <h1 class="text-4xl lg:text-5xl font-bold">{{ .Title }}</h1>
         {{- if .Description }}
-            <p class="mt-4 text-lg md:text-xl lg:text-2xl text-gray-800 dark:text-gray-200 text-opacity-90">{{ .Description }}</p>
+            <p class="mt-4 text-lg md:text-xl lg:text-2xl text-gray-800 dark:text-gray-200 text-opacity-90">{{ .Description | markdownify }}</p>
         {{- end }}
     </header>
 

@@ -1,6 +1,6 @@
 baseURL: https://basselch.com
 title: Bassel Cheaib
-paginate: 12
+paginate: 512
 
 enableInlineShortcodes: true
 enableRobotsTXT: true
@@ -15,6 +15,7 @@ permalinks:
   blog: /a/:slug/
   page: /:slug/
   books: /b/:slug/
+  past: /past/:slug/
 
 taxonomies:
   tag: tags
@@ -27,6 +28,7 @@ languages:
   en:
     contentDir: content/en
     languageCode: en
+    languagedirection: ltr
     weight: 1
     menu:
       main:
@@ -79,7 +81,7 @@ outputs:
     - JSON
 
 params:
-  description: "I'm a computer scientist who enjoys learning new stuff and sharing knowlegde with others. Currently in permanent beta: learning, improving, evolving..."
+  description: "I'm a computer scientist who enjoys learning new stuff and sharing knowledge with others. Currently in permanent beta: learning, improving, evolving..."
   author: Bassel Cheaib
   ShowShareButtons: true
   ShowReadingTime: false
@@ -116,7 +118,7 @@ params:
     - name: buymeacoffee
       url: "https://go.basselch.com/bmc"
     - name: Rss
-      url: "index.xml"
+      url: "/feeds"
 
   navSocial:
     - name: twitter
@@ -125,8 +127,6 @@ params:
       url: "https://go.basselch.com/tm"
     - name: email
       url: "https://go.basselch.com/email"
-    - name: Rss
-      url: "index.xml"
 
   # fuseOpts:
   #     isCaseSensitive: false

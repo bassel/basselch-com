@@ -3,33 +3,22 @@
         <a href='{{ "" | absLangURL }}' class="font-bold" accesskey="h" title="{{ .Site.Title }} (Alt + H)">{{- .Site.Title -}}</a>
     {{- end }}
 
-    <button id="theme-toggle" onclick="toggleTheme()" accesskey="t" title="(Alt + T)">
-        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-            fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    <button class="mx-2 flex items-center" id="theme-toggle" onclick="toggleTheme()" accesskey="t" title="(Alt + T)">
+        <svg class="inline dark:hidden h-6 w-6" id="moon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
         </svg>
-        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-            fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        <svg class="hidden dark:inline h-6 w-6" id="sun" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
         </svg>
     </button>
 
     {{ $lang := .Lang}}
 
     {{- with $.Site.Home.AllTranslations }}
-        <ul class="inline-flex font-bold text-base self-center">
-            <li class="mx-1">|</li>
+        <ul class="inline-flex font-bold text-base self-center ltr:border-l-2 rtl:border-r-2 border-gray-300 dark:border-gray-600">
             {{- range . -}}
                 {{- if ne $lang .Lang }}
-                    <li class="mx-1">
+                    <li class="leading-none mx-2">
                         <a href="{{- .Permalink -}}" title="{{ .Language.LanguageName | default (.Lang | humanize) }}"
                             aria-label="{{ .Language.LanguageName | default (.Lang | humanize) }}">
                             {{- .Lang | humanize -}}

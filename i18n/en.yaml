@@ -18,6 +18,8 @@
   translation: "Last updated"
 - id: book
   translation: "Book"
+- id: featured-posts
+  translation: "Featured posts"
 - id: recent-posts
   translation: "Recent posts"
 - id: recent-books
