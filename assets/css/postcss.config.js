@@ -7,6 +7,7 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
         themeDir + '/hugo_stats.json',
         'exampleSite/hugo_stats.json',
     ],
+    safelist: ["dark"],
     defaultExtractor: (content) => {
         let els = JSON.parse(content).htmlElements;
         return els.tags.concat(els.classes, els.ids);
@@ -17,11 +18,11 @@ module.exports = {
     plugins: [        
         require('postcss-import')({
             path: [themeDir]
-            }), 
+        }), 
         require('tailwindcss')(themeDir + 'assets/css/tailwind.config.js'),
         require('autoprefixer')({
             path: [themeDir]
         }),
-        ...(process.env.HUGO_ENVIRONMENT === 'production' ? [purgecss] : [])
+        ...(process.env.HUGO_ENVIRONMENT === 'production' ? [purgecss] : [purgecss])
     ]
 }

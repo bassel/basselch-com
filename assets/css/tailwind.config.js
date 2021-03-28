@@ -48,10 +48,10 @@ module.exports = {
               }
             },
             'code::before': {
-              content: ''
+              content: '""'
             },
             'code::after': {
-              content: ''
+              content: '""'
             }
           }
         },

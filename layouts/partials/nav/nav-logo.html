@@ -1,6 +1,6 @@
 <div class="mx-3 text-2xl font-normal text-gray-800 dark:text-gray-300 flex flex-shrink-0">
     {{- if .Title }}
-        <a href='{{ "" | absLangURL }}' class="font-bold" accesskey="h" title="{{ .Site.Title }} (Alt + H)">{{- .Site.Title -}}</a>
+        <a href='{{ "" | relLangURL }}' class="font-bold" accesskey="h" title="{{ .Site.Title }} (Alt + H)">{{- .Site.Title -}}</a>
     {{- end }}
 
     <button class="mx-2 flex items-center" id="theme-toggle" onclick="toggleTheme()" accesskey="t" title="(Alt + T)">

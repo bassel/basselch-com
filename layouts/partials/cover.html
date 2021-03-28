@@ -15,7 +15,7 @@
                             {{- end -}}{{$cover.RelPermalink }} {{printf "%dw" ($cover.Width)}}'
                     sizes="(min-width: 768px) 720px, 100vw" src="{{ $cover.RelPermalink }}" alt="{{ $alt }}" />
             {{- else }}{{/* Unprocessable image or responsive images disabled */}}
-                <img class="rounded-lg pointer-events-none" src="{{ (path.Join .RelPermalink .Params.cover.image) | absURL }}" alt="{{ $alt }}">
+                <img class="rounded-lg pointer-events-none" src="{{ (path.Join .RelPermalink .Params.cover.image) | relURL }}" alt="{{ $alt }}">
             {{- end }}
         {{- else }} {{/* For absolute urls and external links, no img processing here */}}
             <img class="rounded-lg pointer-events-none" src="{{ (.Params.cover.image) | absURL }}" alt="{{ $alt }}">

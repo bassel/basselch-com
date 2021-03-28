@@ -10,7 +10,7 @@
     {{- $is_search := eq ($.Site.GetPage .KeyName).Layout `search` }}
     <li class="flex my-2 lg:mt-4 mx-1 lg:mx-2 {{ $borderConfig }}">
       <a class="uppercase font-bold lg:py-2 lg:px-2 rounded text-sm {{ $opacityConfig }}"  {{- cond $is_search (" accesskey=/" | safeHTMLAttr) ("" | safeHTMLAttr ) }}
-        title='{{ .Name }} {{- cond $is_search (" (Alt + /)" | safeHTMLAttr) ("" | safeHTMLAttr ) }}' href="{{ .URL | absLangURL }}">{{ .Name }}</a>
+        title='{{ .Name }} {{- cond $is_search (" (Alt + /)" | safeHTMLAttr) ("" | safeHTMLAttr ) }}' href="{{ .URL | relLangURL }}">{{ .Name }}</a>
     </li>
   {{ end }}
 </ul>
