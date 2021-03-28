@@ -31,7 +31,7 @@
                 {{ range first 5 $featured -}}
                     <div class="rounded-none">
                         <a class="flex p-1 my-1 md:my-0 sm:p-2 md:p-3 text-lg font-semibold focus:outline-none rounded-md dark:focus:bg-gray-700 dark:hover:bg-gray-700 focus:bg-blueGray-100 hover:bg-blueGray-100 items-center" aria-label="post link to {{ .Title | plainify }}" href="{{ .RelPermalink }}">
-                            <span class="text-md opacity-60 font-mono">{{ .Date.Format "02/01/2006" }}</span>
+                            <span class="text-sm sm:text-md opacity-60 font-mono">{{ .Date.Format "02/01/2006" }}</span>
                             <h3 class="mx-4 font-medium flex-grow">{{- .Title | markdownify }}</h3>
                         </a>
                     </div>
@@ -52,7 +52,7 @@
                 {{ range first 5 $posts -}}
                     <div class="rounded-none">
                         <a class="flex p-1 my-1 md:my-0 sm:p-2 md:p-3 text-lg font-semibold focus:outline-none rounded-md dark:focus:bg-gray-700 dark:hover:bg-gray-700 focus:bg-blueGray-100 hover:bg-blueGray-100 items-center" aria-label="post link to {{ .Title | plainify }}" href="{{ .RelPermalink }}">
-                            <span class="text-md opacity-60 font-mono">{{ .Date.Format "02/01/2006" }}</span>
+                            <span class="text-sm sm:text-md opacity-60 font-mono">{{ .Date.Format "02/01/2006" }}</span>
                             <h3 class="mx-4 font-medium flex-grow">{{- .Title | markdownify }}</h3>
                         </a>
                     </div>
@@ -72,7 +72,7 @@
                 </h2>
                 {{ range first 5 $books -}}
                     <div class="rounded-none">
-                        <a class="flex p-1 my-1 md:my-0 sm:p-2 md:p-3 text-lg font-semibold focus:outline-none rounded-md dark:focus:bg-gray-700 dark:hover:bg-gray-700 focus:bg-blueGray-100 hover:bg-blueGray-100 items-center" aria-label="post link to {{ .Title | plainify }}" href="{{ .RelPermalink }}">
+                        <a class="flex p-1 my-1 md:my-0 sm:p-2 md:p-3 text-lg font-semibold focus:outline-none rounded-md dark:focus:bg-gray-700 dark:hover:bg-gray-700 focus:bg-blueGray-100 hover:bg-blueGray-100 items-center" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}">
                             <span class="w-20 flex-shrink-0">{{ partial "book_cover" . }}</span>
                             <h3 class="mx-4 font-medium flex-grow">
                                 {{- .Title | markdownify }}
