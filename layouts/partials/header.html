@@ -1,0 +1,19 @@
+<header class="w-full m-0 py-4 ltr:pl-2 rtl:pr-2 bg-white dark:bg-gray-950">
+    <div class="max-w-6xl mx-auto flex items-center flex-wrap lg:flex-no-wrap relative justify-between">
+        {{ partial "nav/nav-logo" . }}
+
+        <div class="block lg:hidden mx-2 text-gray-800 dark:text-gray-300">{{ partial "nav/nav-menu-buttons" . }}</div>
+
+        <div class="floating-nav ltr:right-4 rtl:left-4 absolute top-10 lg:relative lg:right-0 lg:top-0 flex flex-col lg:flex-row items-center rounded-md bg-white shadow lg:bg-transparent lg:shadow-none">
+            <nav id="nav-social-links" class="px-4 py-2 lg:p-0 text-gray-800 lg:dark:text-gray-300 dark:lg:text-gray-300 hidden lg:block lg:order-last w-full lg:w-auto lg:ml-3">
+                <ul class="flex justify-end">
+                    {{ partial "nav/nav-social.html" . }}
+                </ul>
+            </nav>
+
+            <nav id="nav-menu" class="p-4 pt-0 pb-2 lg:p-0 hidden lg:block w-full lg:w-auto text-gray-800 lg:dark:text-gray-300">
+                {{ partial "nav/nav-links" . }}
+            </nav>
+        </div>
+    </div>
+</header>

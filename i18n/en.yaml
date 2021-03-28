@@ -1,0 +1,37 @@
+- id: prev_page
+  translation: "Prev Page"
+- id: next_page
+  translation: "Next Page"
+- id: read_time
+  translation:
+    one : "1 min"
+    other: "{{ .Count }} mins"
+- id: toc
+  translation: "Table of Contents"
+- id: translations
+  translation: "Other languages"
+- id: home
+  translation: "Home"
+- id: draft
+  translation: "draft"
+- id: last_updated
+  translation: "Last updated"
+- id: book
+  translation: "Book"
+- id: featured-posts
+  translation: "Featured posts"
+- id: recent-posts
+  translation: "Recent posts"
+- id: recent-books
+  translation: "Recent books"
+- id: view-all
+  translation: "View all"
+
+- id: date-completed
+  translation: "Date completed"
+- id: author
+  translation:
+    one : "Author"
+    other: "Authors"
+- id: rating
+  translation: "Rating"

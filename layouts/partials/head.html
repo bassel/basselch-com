@@ -1,0 +1,84 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {{- if hugo.IsProduction | or (eq .Site.Params.env "production") }}
+        <meta name="robots" content="index, follow">
+    {{- else }}
+        <meta name=" robots" content="noindex, nofollow">
+    {{- end -}}
+    <title>{{ if .IsHome }}{{else}}{{ if .Title }}{{ .Title }} | {{ end }}{{end}}{{ .Site.Title }}</title>
+    {{- if (or .Params.keywords .Params.tags) -}}
+        <meta name="keywords" content='{{ if .Params.keywords -}}{{ delimit .Params.keywords "," }}{{- else }}{{ delimit .Params.tags "," }}{{- end -}}' />
+    {{- end -}}
+    <meta name="description" content='{{- with .Description }}{{ . }}{{- else }}{{- if .IsPage}}
+        {{- .Summary | default (printf "%s - %s" .Title  .Site.Title) }}{{- else }}
+        {{- with .Site.Params.description }}{{ . }}{{- end }}{{- end }}{{- end -}}'>
+    <meta name="author" content="{{ .Site.Params.author }}">
+    <link rel="canonical" href="{{ if .Params.canonicalURL -}} {{ trim .Params.canonicalURL " " }} {{- else -}} {{ .Permalink }} {{- end }}" />
+    {{- hugo.Generator }}
+
+    <!-- Styles -->
+    {{- $styles := resources.Get "css/styles.css" | postCSS (dict "config" "./assets/css/postcss.config.js") -}}
+    {{- if .Site.IsServer }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+    {{ else }}
+        {{- $styles := $styles| minify | fingerprint | resources.PostProcess -}}
+    <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}">
+    {{ end -}}
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="{{- "favicon.ico" | absURL -}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{- "favicon-16x16.png" | absURL -}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{- "favicon-32x32.png" | absURL -}}">
+    <link rel="apple-touch-icon" href="{{- "apple-touch-icon.png" | absURL -}}">
+    <link rel="mask-icon" href="{{- "safari-pinned-tab.svg" | absURL -}}">
+    <meta name="theme-color" content="#222222">
+    <meta name="msapplication-TileColor" content="#222222">
+
+    <!-- Search -->
+    {{- if (eq .Layout `search`) -}}
+        <link rel="preload" as="fetch" href="../index.json" crossOrigin="anonymous">
+        {{- $fastsearch := resources.Get "js/fastsearch.js" | resources.ExecuteAsTemplate "js/fastsearch.js" .Site.Params.fuseOpts }}
+        {{- $fusejs := resources.Get "js/fuse.js" }}
+        {{- if not .Site.Params.assets.disableFingerprinting }}
+            {{- $search := (slice $fusejs $fastsearch ) | resources.Concat "assets/js/search.js" | minify | fingerprint }}
+            <script defer src="{{ $search.RelPermalink }}" onload="loadSearch();" integrity="{{ $search.Data.Integrity }}"></script>
+        {{- else}}
+            {{ $search := (slice $fusejs $fastsearch ) | resources.Concat "assets/js/search.js" | minify }}
+            <script defer src="{{ $search.RelPermalink }}" onload="loadSearch();"></script>
+        {{- end}}
+    {{- end -}}
+
+    <!-- RSS -->
+    {{- range .AlternativeOutputFormats -}}
+        <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
+    {{ end -}}
+    {{- range .AllTranslations -}}
+        <link rel="alternate" hreflang="{{- .Lang -}}" href="{{- .Permalink -}}" />
+    {{ end }}
+
+    <!-- Misc -->
+    {{- if hugo.IsProduction | or (eq .Site.Params.env "production") }}
+        {{- template "_internal/google_news.html" . }}
+        {{- template "_internal/opengraph.html" . }}
+        {{- template "_internal/twitter_cards.html" . }}
+        {{- template "partials/templates/schema_json.html" . }}
+    {{- end }}
+
+    <script>
+        if (localStorage.getItem("pref-theme") === "light") {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.dataset.scheme = 'light';
+        } else if (localStorage.getItem("pref-theme") === "dark") {
+            document.documentElement.classList.add('dark');
+            document.documentElement.dataset.scheme = 'dark';
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.dataset.scheme = 'light';
+        }
+    </script>
+</head>

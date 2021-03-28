@@ -1,0 +1,134 @@
+baseURL: https://basselch.com
+title: Bassel Cheaib
+paginate: 512
+
+enableInlineShortcodes: true
+enableRobotsTXT: true
+buildDrafts: true
+buildFuture: false
+buildExpired: false
+
+build:
+  writeStats: true
+
+permalinks:
+  blog: /a/:slug/
+  page: /:slug/
+  books: /b/:slug/
+  past: /past/:slug/
+
+taxonomies:
+  tag: tags
+
+minify:
+  disableXML: true
+  # minifyOutput: true
+
+languages:
+  en:
+    contentDir: content/en
+    languageCode: en
+    languagedirection: ltr
+    weight: 1
+
+  ar:
+    contentDir: content/ar
+    languageCode: ar
+    languagedirection: rtl
+    weight: 2
+    title: باسل شعيب
+    permalinks:
+      books: /b/:filename/
+    homeInfoParams:
+      Title: "مرحبًا بكم في حديقتي الرقمية"
+      Content: >
+        هنا ستجدون جميع المحتوى العربي من مقالات وكتب وغيرها.
+
+        - أتمنى أن تستفيدوا منها، وإن كان لديكم أي تعليق أو استفسار لا تترددوا في التواصل معي!
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+params:
+  description: "I'm a computer scientist who enjoys learning new stuff and sharing knowledge with others. Currently in permanent beta: learning, improving, evolving..."
+  author: Bassel Cheaib
+  ShowShareButtons: true
+  ShowReadingTime: false
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowToc: true
+  comments: true
+  utterances:
+    repo: bassel/PWComments
+    issueTerm: url
+    label: PW
+  images: ["cover.png"]
+
+  mainSections: ['blog', 'books']
+
+  homeInfoParams:
+    Title: "Welcome to my digital garden"
+    Content: >
+      Here, you'll find all the digital content I create (articles, book notes, random thoughts, etc).
+
+      - I hope you find some of the stuff here interesting and useful.
+
+      - In case you have any thoughts or comments, please don't hesitate to get in touch with me!
+
+  socialIcons:
+    - name: github
+      url: "https://go.basselch.com/gh"
+    - name: twitter
+      url: "https://go.basselch.com/tw"
+    - name: telegram
+      url: "https://go.basselch.com/tm"
+    - name: email
+      url: "https://go.basselch.com/email"
+    - name: buymeacoffee
+      url: "https://go.basselch.com/bmc"
+    - name: Rss
+      url: "/feeds"
+
+  navSocial:
+    - name: twitter
+      url: "https://go.basselch.com/tw"
+    - name: telegram
+      url: "https://go.basselch.com/tm"
+    - name: email
+      url: "https://go.basselch.com/email"
+
+  # fuseOpts:
+  #     isCaseSensitive: false
+  #     shouldSort: true
+  #     location: 0
+  #     distance: 1000
+  #     threshold: 0.4
+  #     minMatchCharLength: 0
+  #     keys: ["title", "permalink", "summary", "content"]
+
+privacy:
+  vimeo:
+    disabled: false
+    simple: true
+
+  twitter:
+    disabled: false
+    enableDNT: true
+    simple: true
+
+  instagram:
+    disabled: false
+    simple: true
+
+  youtube:
+    disabled: false
+    privacyEnhanced: true
+
+services:
+  instagram:
+    disableInlineCSS: true
+  twitter:
+    disableInlineCSS: true

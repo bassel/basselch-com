@@ -1,0 +1,39 @@
+- id: prev_page
+  translation: "الصفحة السابقة"
+- id: next_page
+  translation: "الصفحة التالية"
+- id: read_time
+  translation:
+    one: "دقيقة واحدة"
+    two: "دقيقتان"
+    few: "أقل من دقيقة"
+    other: "دقائق {{ .Count }}"
+- id: toc
+  translation: "فهرس المحتوى"
+- id: translations
+  translation: "لغات أخرى"
+- id: home
+  translation: "الصفحة الرئيسية"
+- id: draft
+  translation: "مسودّة"
+- id: last_updated
+  translation: "آخر تحديث"
+- id: book
+  translation: "كتاب"
+- id: featured-posts
+  translation: "مقالات مميّزة"
+- id: recent-posts
+  translation: "المقالات"
+- id: recent-books
+  translation: "الكتب"
+- id: view-all
+  translation: "عرض الكل"
+
+- id: date-completed
+  translation: "تاريخ إنهاء القراءة"
+- id: author
+  translation:
+    one : "بقلم"
+    other: "الكتّاب"
+- id: rating
+  translation: "التقييم"

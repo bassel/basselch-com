@@ -1,0 +1,39 @@
+{{- define "main" }}
+<div class="container mx-auto max-w-4xl">
+    <header class="mx-1 md:mx-3">
+        <h1 class="text-4xl lg:text-5xl font-bold">{{ .Title }}</h1>
+        {{- if .Description }}
+            <p class="mt-4 text-lg md:text-xl lg:text-2xl text-gray-800 dark:text-gray-200 text-opacity-90">{{ .Description | markdownify }}</p>
+        {{- end }}
+    </header>
+
+    {{ $isBooksDir := eq .Type "books" }}
+
+    {{- range .Pages.GroupByPublishDate "2006" }}
+        {{- if ne .Key "0001" }}
+            <section class="mt-8">
+                <h2 class="text-2xl lg:text-3xl font-bold border-b-2 border-opacity-80 pb-2 mx-1 md:mx-3 mb-2 text-blue-800 dark:text-blue-200 border-blue-800 dark:border-blue-200 font-mono">
+                    {{- replace .Key "0001" "" }}
+                </h2>
+                <div class="divide-y md:divide-none mx-1 md:mx-0">
+                    {{- range .Pages  }}
+                        {{- if eq .Kind "page" }}
+                            <div class="rounded-none">
+                                <a class="flex p-1 my-1 md:my-0 sm:p-2 md:p-3 text-lg font-semibold focus:outline-none rounded-md dark:focus:bg-gray-700 dark:hover:bg-gray-700 focus:bg-blueGray-100 hover:bg-blueGray-100 items-center" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}">
+                                    <span class="text-md opacity-60 font-mono">{{ .Date.Format "02/01" }}</span>
+                                    <h3 class="mx-4 font-medium flex-grow">
+                                        {{- .Title | markdownify }}
+                                    </h3>
+                                    {{ if and (eq .Type "books") (not $isBooksDir) }}
+                                        <span class="text-md rounded-lg px-2 bg-purple-200 dark:bg-purple-700">{{ i18n "book" }}</span>
+                                    {{ end }}
+                                </a>
+                            </div>
+                        {{- end }}
+                    {{- end }}
+                </div>
+            </section>
+        {{- end }}
+    {{- end }}
+</div>
+{{- end  }}

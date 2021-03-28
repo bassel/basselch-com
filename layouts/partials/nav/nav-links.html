@@ -1,0 +1,16 @@
+{{ $currentPage := . }}
+<ul class="w-full flex flex-col lg:flex-row justify-end items-end lg:items-center">
+  {{ range .Site.Menus.main.ByWeight }}
+    {{ $borderConfig := "border-b-2 border-opacity-0 hover:border-opacity-100 focus:border-opacity-100 border-gray-400 transition-border duration-300 ease-in-out" }}
+    {{ $opacityConfig := "opacity-80 hover:opacity-100 transition-opacity duration-300 ease-in-out" }}
+    {{ if $currentPage.IsMenuCurrent "main" . }}
+      {{ $borderConfig = "border-b-2 border-gray-400" }}
+      {{ $opacityConfig = "opacity-100" }}
+    {{ end }}
+    {{- $is_search := eq ($.Site.GetPage .KeyName).Layout `search` }}
+    <li class="flex my-2 lg:mt-4 mx-1 lg:mx-2 {{ $borderConfig }}">
+      <a class="uppercase font-bold lg:py-2 lg:px-2 rounded text-sm {{ $opacityConfig }}"  {{- cond $is_search (" accesskey=/" | safeHTMLAttr) ("" | safeHTMLAttr ) }}
+        title='{{ .Name }} {{- cond $is_search (" (Alt + /)" | safeHTMLAttr) ("" | safeHTMLAttr ) }}' href="{{ .URL | absLangURL }}">{{ .Name }}</a>
+    </li>
+  {{ end }}
+</ul>

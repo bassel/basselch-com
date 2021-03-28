@@ -1,0 +1,20 @@
+{{ define "main" }}
+<article class="mx-auto max-w-4xl">
+    <header>
+        <h1 class="text-4xl lg:text-5xl font-bold {{if .Params.showLastUpdated }}mb-2{{ end }}">
+          {{ .Title }}
+          {{- if .Draft }}<span class="text-sm text-gray-600 dark:text-gray-300 lg:text-lg align-middle">&nbsp;&nbsp;[{{ i18n "draft" }}]</span>{{- end }}
+        </h1>
+        {{if .Params.showLastUpdated }}
+            <p class="m-0 p-0 text-gray-600 dark:text-gray-300 mt-1">
+                {{ i18n "last_updated" }}: 
+                <time datetime='{{ dateFormat "2006-01-02T15:04:05-07:00" (default .Date (.Lastmod)) }}'>
+                    {{ dateFormat "02/01/2006" (default .Date (.Lastmod)) }}
+                </time>
+            </p>
+        {{ end }}
+        <hr class="mt-4 mb-8">
+    </header>
+    <div class="prose dark:prose-dark rtl:prose-rtl prose-blue lg:prose-lg max-w-2xl">{{- partial "helpers/anchored_headings.html" .Content -}}</div> 
+</article>
+{{ end }}
