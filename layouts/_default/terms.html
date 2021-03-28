@@ -16,7 +16,7 @@
             {{- $count := .Count }}
             {{- with $.Site.GetPage (printf "/%s/%s" $type $name) }}
                 <li class="inline-block m-1 font-medium">
-                    <a class="block py-2 px-4 bg-blueGray-100 dark:bg-gray-700 hover:bg-blueGray-200 dark:hover:bg-gray-800 rounded-md" href="{{ .Permalink }}">
+                    <a class="block py-2 px-4 bg-blueGray-100 dark:bg-gray-700 hover:bg-blueGray-200 dark:hover:bg-gray-800 rounded-md" href="{{ .RelPermalink }}">
                         {{ .Name }} <sup><strong><sup>{{ $count }}</sup></strong></sup> 
                     </a>
                 </li>

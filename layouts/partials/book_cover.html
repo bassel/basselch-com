@@ -5,7 +5,7 @@
         {{- if $cover -}}{{/* i.e it is present in page bundle */}}
             {{ with $cover }}
                 {{- $resized := .Resize "200x" -}}
-                <img class="rounded-lg border border-gray-200 dark:border-gray-800" loading="lazy" src="{{ $resized.Permalink }}" alt="{{ $.Title }}" />
+                <img class="rounded-lg border border-gray-200 dark:border-gray-800" loading="lazy" src="{{ $resized.RelPermalink }}" alt="{{ $.Title }}" />
             {{ end }}
         {{- else }} {{/* For absolute urls and external links, no img processing here */}}
             <img class="rounded-lg" src="{{ (.Params.cover.image) | absURL }}" alt="{{ $alt }}">

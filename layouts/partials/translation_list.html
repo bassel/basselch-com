@@ -6,7 +6,7 @@
     <ul>
         {{- i18n "translations" | default "Translations"}}:
         {{- range .Translations }}
-            <li class="inline-flex list-none m-1"><a href="{{ .Permalink }}">{{- .Lang | humanize -}}</a></li>
+            <li class="inline-flex list-none m-1"><a href="{{ .RelPermalink }}">{{- .Lang | humanize -}}</a></li>
         {{- end }}
     </ul>
 {{- end }}
