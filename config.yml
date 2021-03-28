@@ -30,23 +30,6 @@ languages:
     languageCode: en
     languagedirection: ltr
     weight: 1
-    menu:
-      main:
-        - name: About
-          url: about
-          weight: 1
-        - name: Now
-          url: now
-          weight: 2
-        - name: Blog
-          url: blog
-          weight: 10
-        - name: Books
-          url: books
-          weight: 20
-        - name: Search
-          url: search
-          weight: 30
 
   ar:
     contentDir: content/ar
@@ -62,17 +45,6 @@ languages:
         هنا ستجدون جميع المحتوى العربي من مقالات وكتب وغيرها.
 
         - أتمنى أن تستفيدوا منها، وإن كان لديكم أي تعليق أو استفسار لا تترددوا في التواصل معي!
-    menu:
-      main:
-        - name: المقالات
-          url: blog
-          weight: 10
-        - name: الكتب
-          url: books
-          weight: 20
-        - name: البحث
-          url: search
-          weight: 30
 
 outputs:
   home:

@@ -23,7 +23,7 @@
     {{- partial "cover.html" . }}
 
     {{- if (.Param "ShowToc") }}
-        <div class="toc p-2 rounded-lg bg-gray-100 dark:bg-gray-700 mb-6">
+        <div class="toc p-2 rounded-lg bg-blueGray-100 dark:bg-gray-700 mb-6">
             <details {{ if (.Param "TocOpen") }} open{{ end }}>
                 <summary accesskey="c" title="(Alt + C)" class="cursor-pointer mx-5 focus:outline-none">
                     <div class="inline font-medium">{{- i18n "toc" | default "Table of Contents" }}</div>
@@ -44,7 +44,7 @@
             <ul>
                 {{- range ($.GetTerms "tags") }}
                     <li class="inline-block mb-2" style="margin-inline-end: 3px;">
-                        <a class="block px-3 py-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-md" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+                        <a class="block px-3 py-2 bg-blueGray-100 dark:bg-gray-700 hover:bg-blueGray-200 dark:hover:bg-gray-800 rounded-md" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
                     </li>
                 {{- end }}
             </ul>
@@ -52,9 +52,9 @@
 
         {{- if (.Param "ShowPostNavLinks") }}
             {{- if or .PrevInSection .NextInSection }}
-                <nav class="pagenav flex my-4 rounded-lg bg-gray-100 dark:bg-gray-700">
+                <nav class="pagenav flex my-4 rounded-lg bg-blueGray-100 dark:bg-gray-700">
                     {{- with .PrevInSection }}
-                        <a class="prev w-1/2 hover:bg-gray-200 dark:hover:bg-gray-800 px-4 pt-1 pb-2" href="{{.Permalink}}">
+                        <a class="prev w-1/2 hover:bg-blueGray-200 dark:hover:bg-gray-800 px-4 pt-1 pb-2" href="{{.Permalink}}">
                             <span class="text-gray-700 dark:text-gray-300 leading-8">
                                 «&nbsp;<span class="uppercase text-sm">{{ i18n "prev_page" }}</span>
                             </span>
@@ -63,7 +63,7 @@
                         </a>
                     {{- end }}
                     {{- with .NextInSection }}
-                        <a class="next w-1/2 hover:bg-gray-200 dark:hover:bg-gray-800 px-4 pt-1 pb-2" href="{{.Permalink}}">
+                        <a class="next w-1/2 hover:bg-blueGray-200 dark:hover:bg-gray-800 px-4 pt-1 pb-2" href="{{.Permalink}}">
                             <span class="text-gray-700 dark:text-gray-300 leading-8">
                                 <span class="uppercase text-sm">{{ i18n "next_page" }}</span>&nbsp;»
                             </span>

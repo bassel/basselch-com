@@ -1,4 +1,5 @@
 # basselch.com
+
 ![GitHub](https://img.shields.io/github/license/bassel/basselch-com)
 ![GitHub repo size](https://img.shields.io/github/repo-size/bassel/basselch-com)
 
@@ -14,8 +15,9 @@ Feel free to use the code, but keep in mind that I will not provide support or g
 ## Credits
 
 The current version of my personal website is highly inspired by:
+
 - [Tania Rascia's personal website](https://www.taniarascia.com/)
-- [Derek Sivers's personal website](https://sive.rs/)
+- [Derek Sivers' personal website](https://sive.rs/)
 
 ## License
 

@@ -1,6 +1,6 @@
 {{ define "main" }}
     {{- with $.Site.Params.homeInfoParams }}
-        <article class="bg-gray-100 dark:bg-gray-900 p-10 md:p-16">
+        <article class="bg-blueGray-100 dark:bg-gray-900 p-10 md:p-16">
             <div class="max-w-4xl mx-auto">
                 <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold">{{- .Title | markdownify }}</h1>
                 <section class="mt-2 sm:mt-3 md:mt-4 lg:mt-6 text-lg md:text-xl lg:text-xl text-gray-950 dark:text-gray-200 text-opacity-90">
@@ -30,7 +30,7 @@
                 <h2>{{ i18n "featured-posts"}}</h2>
                 {{ range first 5 $featured -}}
                     <div class="rounded-none">
-                        <a class="flex p-1 my-1 md:my-0 sm:p-2 md:p-3 text-lg font-semibold focus:outline-none rounded-md dark:focus:bg-gray-700 dark:hover:bg-gray-700 focus:bg-gray-100 hover:bg-gray-100 items-center" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}">
+                        <a class="flex p-1 my-1 md:my-0 sm:p-2 md:p-3 text-lg font-semibold focus:outline-none rounded-md dark:focus:bg-gray-700 dark:hover:bg-gray-700 focus:bg-blueGray-100 hover:bg-blueGray-100 items-center" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}">
                             <span class="text-md opacity-60 font-mono">{{ .Date.Format "02/01/2006" }}</span>
                             <h3 class="mx-4 font-medium flex-grow">{{- .Title | markdownify }}</h3>
                         </a>
@@ -45,13 +45,13 @@
             <section class="mx-auto max-w-4xl">
                 <h2 class="flex">
                     <span class="flex-grow">{{ i18n "recent-posts"}}</span>
-                    <a href='{{ ref . "blog" }}' class="text-md rounded-lg px-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-800">
+                    <a href='{{ ref . "blog" }}' class="text-md rounded-lg px-2 bg-blueGray-100 dark:bg-gray-700 hover:bg-blueGray-200 dark:hover:bg-gray-800">
                         {{ i18n "view-all" }}
                     </a>
                 </h2>
                 {{ range first 5 $posts -}}
                     <div class="rounded-none">
-                        <a class="flex p-1 my-1 md:my-0 sm:p-2 md:p-3 text-lg font-semibold focus:outline-none rounded-md dark:focus:bg-gray-700 dark:hover:bg-gray-700 focus:bg-gray-100 hover:bg-gray-100 items-center" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}">
+                        <a class="flex p-1 my-1 md:my-0 sm:p-2 md:p-3 text-lg font-semibold focus:outline-none rounded-md dark:focus:bg-gray-700 dark:hover:bg-gray-700 focus:bg-blueGray-100 hover:bg-blueGray-100 items-center" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}">
                             <span class="text-md opacity-60 font-mono">{{ .Date.Format "02/01/2006" }}</span>
                             <h3 class="mx-4 font-medium flex-grow">{{- .Title | markdownify }}</h3>
                         </a>
@@ -66,13 +66,13 @@
             <section class="mx-auto max-w-4xl">
                 <h2 class="flex">
                     <span class="flex-grow">{{ i18n "recent-books"}}</span>
-                    <a href='{{ ref . "books" }}' class="text-md rounded-lg px-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-800">
+                    <a href='{{ ref . "books" }}' class="text-md rounded-lg px-2 bg-blueGray-100 dark:bg-gray-700 hover:bg-blueGray-200 dark:hover:bg-gray-800">
                         {{ i18n "view-all" }}
                     </a>
                 </h2>
                 {{ range first 5 $books -}}
                     <div class="rounded-none">
-                        <a class="flex p-1 my-1 md:my-0 sm:p-2 md:p-3 text-lg font-semibold focus:outline-none rounded-md dark:focus:bg-gray-700 dark:hover:bg-gray-700 focus:bg-gray-100 hover:bg-gray-100 items-center" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}">
+                        <a class="flex p-1 my-1 md:my-0 sm:p-2 md:p-3 text-lg font-semibold focus:outline-none rounded-md dark:focus:bg-gray-700 dark:hover:bg-gray-700 focus:bg-blueGray-100 hover:bg-blueGray-100 items-center" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}">
                             <span class="w-20 flex-shrink-0">{{ partial "book_cover" . }}</span>
                             <h3 class="mx-4 font-medium flex-grow">
                                 {{- .Title | markdownify }}

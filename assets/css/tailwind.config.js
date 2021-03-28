@@ -37,6 +37,10 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
+            color: theme('colors.gray.900'),
+            '[class~="lead"]': {
+              color: theme('colors.blueGray.700'),
+            },
             a: {
               textDecoration: 'none',
               '&:hover': {

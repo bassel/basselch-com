@@ -27,7 +27,7 @@ h3:hover .anchor,
 h4:hover .anchor,
 h5:hover .anchor,
 h6:hover .anchor {
-  @apply inline-flex mx-2 text-gray-400 dark:text-gray-600 opacity-90 font-normal;
+  @apply inline-flex mx-2 text-gray-400 dark:text-gray-600 opacity-90 font-normal absolute;
 }
 
 #top-link {
@@ -40,7 +40,7 @@ h6:hover .anchor {
 }
 ::-webkit-scrollbar-thumb {
   border: 5px solid;
-  @apply bg-gray-300 dark:bg-gray-600 hover:bg-gray-600 dark:hover:bg-gray-300 rounded-lg border-white dark:border-gray-950
+  @apply bg-blueGray-300 dark:bg-gray-600 hover:bg-gray-600 dark:hover:bg-gray-300 rounded-lg border-white dark:border-gray-950
 }
 
 @media screen and (min-width: 768px) {
@@ -97,7 +97,7 @@ h6:hover .anchor {
   @apply font-bold text-blue-600 dark:text-blue-400 no-underline hover:underline;
 }
 #home-info h2 {
-  @apply text-2xl lg:text-3xl font-bold border-b-2 border-opacity-40 pb-3 mb-3 lg:mb-4 mt-10 border-gray-700 dark:border-gray-200;
+  @apply text-2xl lg:text-3xl font-bold border-b-2 border-opacity-40 dark:border-opacity-40 pb-3 mb-3 lg:mb-4 mt-10 border-blueGray-700 dark:border-gray-200;
 }
 #home-info p {
   @apply max-w-3xl my-2 text-base lg:text-lg;

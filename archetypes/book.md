@@ -27,17 +27,9 @@ cover:
 
 ## The Book in 3 Sentences
 
-## Impressions
+## Who Should Read It?
 
-### How I Discovered It
-
-### Who Should Read It?
-
-## How the Book Changed Me
-
-{{< highlight >}}
-How my life / behaviour / thoughts / ideas have changed as a result of reading the book.
-{{< /highlight >}}
+## Practical takeaways
 
 ## My Top 3 Quotes
 
