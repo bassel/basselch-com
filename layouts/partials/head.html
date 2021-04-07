@@ -63,7 +63,7 @@
     {{ end }}
 
     <!-- Misc -->
-    {{- if hugo.IsProduction | or (eq .Site.Params.env "production") }}
+    {{- if hugo.IsProduction }}
         {{- template "_internal/google_news.html" . }}
         {{- template "_internal/opengraph.html" . }}
         {{- template "_internal/twitter_cards.html" . }}

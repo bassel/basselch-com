@@ -87,8 +87,6 @@ params:
       url: "https://go.basselch.com/tm"
     - name: email
       url: "https://go.basselch.com/email"
-    - name: buymeacoffee
-      url: "https://go.basselch.com/bmc"
     - name: Rss
       url: "/feeds"
 

@@ -8,7 +8,7 @@
                 </section>
                 <footer class="social-icons flex overflow-y-scroll mt-6 lg:mt-8">
                     {{- range $.Site.Params.socialIcons -}}
-                        <a href='{{ trim .url " " }}' rel="noopener noreferrer me" title="{{ .name | humanize }}">
+                        <a href='{{ trim .url " " }}' rel="nofollow noopener noreferrer me" title="{{ .name | humanize }}">
                             {{ partial "helpers/svg_icons.html" . }}
                         </a>
                     {{- end -}}
