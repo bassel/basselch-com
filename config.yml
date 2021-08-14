@@ -80,9 +80,9 @@ params:
 
   socialIcons:
     - name: github
-      url: "https://go.basselch.com/gh"
+      url: "https://go.basselch.com/github"
     - name: telegram
-      url: "https://go.basselch.com/tm"
+      url: "https://go.basselch.com/telegram"
     - name: email
       url: "https://go.basselch.com/email"
     - name: Rss
@@ -90,7 +90,7 @@ params:
 
   navSocial:
     - name: telegram
-      url: "https://go.basselch.com/tm"
+      url: "https://go.basselch.com/telegram"
     - name: email
       url: "https://go.basselch.com/email"
 
